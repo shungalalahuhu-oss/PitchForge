@@ -519,7 +519,15 @@ function exportPDF(){
 }
 
 async function exportPPTX(){
-  if(!deckData||typeof PptxGenJS==='undefined'){alert('PPTX library loading, try again in a moment.');return;}
+  if(!deckData){return;}
+  if(typeof PptxGenJS==='undefined'){
+    const btn=event.target;
+    const orig=btn.textContent;
+    btn.textContent='⏳ Loading...';
+    await new Promise(r=>setTimeout(r,3000));
+    btn.textContent=orig;
+    if(typeof PptxGenJS==='undefined'){alert('Still loading, try once more in a few seconds.');return;}
+  }
   const pptx=new PptxGenJS();
   pptx.layout='LAYOUT_WIDE';
   const BG='050507';
