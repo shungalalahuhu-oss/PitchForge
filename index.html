@@ -7,22 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#050507;--bg2:#0c0c12;--bg3:#13131c;
-  --border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.09);
-  --text:#f0f0f5;--muted:#52526a;--muted2:#7878a0;
-  --a1:#7c6dfa;--a2:#fa6d7c;--a3:#6dfabc;--gold:#fac76d;
-}
-[data-light]{
-  --bg:#f5f5fa;--bg2:#ffffff;--bg3:#eaeaf2;
-  --border:rgba(0,0,0,0.05);--border2:rgba(0,0,0,0.09);
-  --text:#08080f;--muted:#9090b0;--muted2:#6868a0;
-  --a1:#6c5ef5;--a2:#f53d52;--a3:#00c47a;--gold:#d4920a;
-}
+:root{--bg:#050507;--bg2:#0c0c12;--bg3:#13131c;--border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.09);--text:#f0f0f5;--muted:#52526a;--muted2:#7878a0;--a1:#7c6dfa;--a2:#fa6d7c;--a3:#6dfabc;--gold:#fac76d;}
+[data-light]{--bg:#f5f5fa;--bg2:#ffffff;--bg3:#eaeaf2;--border:rgba(0,0,0,0.05);--border2:rgba(0,0,0,0.09);--text:#08080f;--muted:#9090b0;--muted2:#6868a0;--a1:#6c5ef5;--a2:#f53d52;--a3:#00c47a;--gold:#d4920a;}
 html,body{background:var(--bg);color:var(--text);font-family:'Cabinet Grotesk',sans-serif;min-height:100vh;overflow-x:hidden;transition:background 0.3s,color 0.3s;}
 .page{display:none;min-height:100vh;flex-direction:column;}
 .page.active{display:flex;}
-
 .land-nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--border);}
 .logo{font-family:'Clash Display',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.5px;}
 .logo .dot{color:var(--a1);}
@@ -30,53 +19,65 @@ html,body{background:var(--bg);color:var(--text);font-family:'Cabinet Grotesk',s
 .theme-btn{width:34px;height:34px;border-radius:50%;border:0.5px solid var(--border2);background:transparent;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;color:var(--text);}
 .theme-btn:hover{border-color:var(--a1);}
 .badge{font-family:'Fira Code',monospace;font-size:10px;padding:4px 10px;border-radius:4px;border:0.5px solid;letter-spacing:1px;color:var(--a3);border-color:rgba(109,250,188,0.25);}
-[data-light] .badge{color:var(--a3);border-color:rgba(0,196,122,0.25);}
-
 .land-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 40px;position:relative;overflow:hidden;}
 .land-hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,109,250,0.08) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
-.land-hero::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(250,109,124,0.06) 0%,transparent 70%);top:20%;right:10%;pointer-events:none;}
-
 .eyebrow{font-family:'Fira Code',monospace;font-size:11px;color:var(--a1);letter-spacing:3px;margin-bottom:24px;display:flex;align-items:center;gap:8px;}
 .eyebrow::before,.eyebrow::after{content:'';width:30px;height:0.5px;background:var(--a1);}
-
 .land-h1{font-family:'Clash Display',sans-serif;font-size:clamp(42px,7vw,72px);font-weight:700;line-height:1.0;letter-spacing:-2px;margin-bottom:20px;}
 .land-h1 .line1{display:block;color:var(--text);}
 .land-h1 .line2{display:block;background:linear-gradient(135deg,var(--a1) 0%,var(--a2) 50%,var(--a3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
 .land-sub{font-size:17px;color:var(--muted2);line-height:1.7;max-width:500px;margin:0 auto 48px;font-weight:400;}
-
 .cta-group{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;}
-.btn-cta{padding:16px 36px;background:var(--a1);color:#fff;font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:all 0.2s;letter-spacing:-0.2px;}
+.btn-cta{padding:16px 36px;background:var(--a1);color:#fff;font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:all 0.2s;}
 .btn-cta:hover{background:#8b7dfb;transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,109,250,0.35);}
 .btn-ghost{padding:16px 28px;background:transparent;color:var(--muted2);font-size:14px;font-weight:500;border:0.5px solid var(--border2);border-radius:14px;cursor:pointer;transition:all 0.2s;font-family:'Cabinet Grotesk',sans-serif;}
 .btn-ghost:hover{color:var(--text);border-color:var(--a1);}
-
 .feature-pills{display:flex;gap:10px;margin-top:48px;flex-wrap:wrap;justify-content:center;}
 .pill{font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);border:0.5px solid var(--border2);padding:7px 14px;border-radius:99px;display:flex;align-items:center;gap:6px;}
 .pill-dot{width:5px;height:5px;border-radius:50%;}
-
 .land-footer{padding:20px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .land-footer p{font-family:'Fira Code',monospace;font-size:10px;color:var(--muted);letter-spacing:0.5px;}
 .stat-chips{display:flex;gap:20px;}
 .stat-chip .n{font-family:'Clash Display',sans-serif;font-size:18px;font-weight:700;color:var(--text);}
 .stat-chip .l{font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);letter-spacing:1px;}
-
-.app-nav{padding:16px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--border);background:var(--bg2);}
+.hiw-nav{padding:20px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--border);}
 .back-btn{font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);border:0.5px solid var(--border2);padding:6px 14px;border-radius:8px;cursor:pointer;background:transparent;transition:all 0.15s;}
-.back-btn:hover{color:var(--text);border-color:var(--border2);}
+.back-btn:hover{color:var(--text);}
+.hiw-body{flex:1;padding:60px 40px;max-width:760px;margin:0 auto;width:100%;}
+.hiw-kicker{font-family:'Fira Code',monospace;font-size:10px;color:var(--a1);letter-spacing:2px;margin-bottom:12px;}
+.hiw-title{font-family:'Clash Display',sans-serif;font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:-1px;color:var(--text);margin-bottom:16px;line-height:1.1;}
+.hiw-sub{font-size:16px;color:var(--muted2);line-height:1.7;margin-bottom:56px;max-width:520px;}
+.steps-list{display:flex;flex-direction:column;gap:0;}
+.step-item{display:flex;gap:24px;position:relative;padding-bottom:40px;}
+.step-item:last-child{padding-bottom:0;}
+.step-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:0;width:1px;background:var(--border2);}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--bg2);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:13px;color:var(--a1);flex-shrink:0;position:relative;z-index:1;}
+.step-content{flex:1;padding-top:8px;}
+.step-icon{font-size:28px;margin-bottom:10px;}
+.step-name{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-0.3px;}
+.step-desc{font-size:14px;color:var(--muted2);line-height:1.65;}
+.step-tip{margin-top:10px;background:var(--bg3);border-radius:10px;padding:10px 14px;font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);line-height:1.5;border-left:2px solid var(--a1);}
+.sp-title{font-family:'Clash Display',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:20px;letter-spacing:-0.3px;}
+.slides-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+@media(max-width:500px){.slides-grid{grid-template-columns:1fr;}}
+.slide-chip{background:var(--bg2);border:0.5px solid var(--border2);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:10px;}
+.sc-num{font-family:'Fira Code',monospace;font-size:10px;color:var(--a1);width:20px;flex-shrink:0;}
+.sc-ico{font-size:18px;flex-shrink:0;}
+.sc-name{font-size:13px;font-weight:500;color:var(--text);}
+.sc-desc{font-size:11px;color:var(--muted);margin-top:2px;}
+.hiw-cta{margin-top:56px;text-align:center;padding:40px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:20px;}
+.hiw-cta h3{font-family:'Clash Display',sans-serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.5px;}
+.hiw-cta p{font-size:14px;color:var(--muted2);margin-bottom:24px;}
+.app-nav{padding:16px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--border);background:var(--bg2);}
 .app-logo{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;letter-spacing:-0.3px;}
 .step-ind{font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);letter-spacing:1px;}
-
 .app-body{flex:1;padding:40px;max-width:760px;margin:0 auto;width:100%;}
-
-.step{display:none;}
-.step.active{display:block;animation:fadeUp 0.4s ease;}
+.astep{display:none;}
+.astep.active{display:block;animation:fadeUp 0.4s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-
 .step-kicker{font-family:'Fira Code',monospace;font-size:10px;color:var(--a1);letter-spacing:2px;margin-bottom:8px;}
 .step-title{font-family:'Clash Display',sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.5px;color:var(--text);margin-bottom:6px;}
 .step-sub{font-size:14px;color:var(--muted2);margin-bottom:28px;line-height:1.5;}
-
 .input-box{background:var(--bg2);border:0.5px solid var(--border2);border-radius:16px;padding:24px;margin-bottom:12px;transition:border-color 0.2s;}
 .input-box:focus-within{border-color:rgba(124,109,250,0.4);}
 .input-lbl{font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:10px;display:block;}
@@ -87,7 +88,6 @@ textarea::placeholder{color:var(--muted);opacity:0.5;}
 select{width:100%;background:var(--bg3);border:0.5px solid var(--border2);border-radius:10px;padding:10px 14px;color:var(--text);font-family:'Cabinet Grotesk',sans-serif;font-size:13px;outline:none;cursor:pointer;}
 select:focus{border-color:var(--a1);}
 .opt-lbl{font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;margin-bottom:6px;display:block;}
-
 .btn-go{width:100%;padding:16px;background:var(--a1);color:#fff;font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:all 0.2s;}
 .btn-go:hover{background:#8b7dfb;transform:translateY(-1px);box-shadow:0 8px 24px rgba(124,109,250,0.3);}
 .btn-go:disabled{background:var(--bg3);color:var(--muted);transform:none;box-shadow:none;cursor:not-allowed;}
@@ -96,44 +96,35 @@ select:focus{border-color:var(--a1);}
 .btn-go.loading .sp{display:block;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .err{background:rgba(250,109,124,0.07);border:0.5px solid rgba(250,109,124,0.2);border-radius:10px;padding:12px 16px;font-size:13px;color:#fa8d9a;margin-top:10px;display:none;}
-
 .deck-out{display:none;animation:fadeUp 0.5s ease;}
 .deck-meta{text-align:center;margin-bottom:32px;}
 .deck-name{font-family:'Clash Display',sans-serif;font-size:34px;font-weight:700;letter-spacing:-1px;color:var(--text);margin-bottom:4px;}
 .deck-tag{font-size:15px;color:var(--muted2);font-style:italic;}
-
 .prog{height:2px;background:var(--bg3);border-radius:99px;margin-bottom:24px;overflow:hidden;}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--a1),var(--a3));transition:width 0.4s;}
-
 .slide-dots{display:flex;gap:6px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
 .sdot{width:7px;height:7px;border-radius:50%;background:var(--bg3);border:0.5px solid var(--border2);cursor:pointer;transition:all 0.2s;}
 .sdot.on{background:var(--a1);border-color:var(--a1);width:22px;border-radius:4px;}
-
 .sld{display:none;background:var(--bg2);border:0.5px solid var(--border2);border-radius:20px;padding:32px;animation:sldIn 0.35s cubic-bezier(0.34,1.2,0.64,1);}
 .sld.on{display:block;}
 @keyframes sldIn{from{opacity:0;transform:scale(0.975)}to{opacity:1;transform:scale(1)}}
-
 .sld-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
 .sld-left{flex:1;padding-right:16px;}
 .sld-cat{font-family:'Fira Code',monospace;font-size:9px;color:var(--a1);letter-spacing:2.5px;margin-bottom:8px;}
 .sld-headline{font-family:'Clash Display',sans-serif;font-size:21px;font-weight:700;letter-spacing:-0.3px;line-height:1.2;color:var(--text);}
 .sld-ico{font-size:38px;line-height:1;flex-shrink:0;}
-
 .sld-pts{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
 .sld-pts li{font-size:13px;color:var(--muted2);line-height:1.5;display:flex;gap:10px;align-items:flex-start;}
 .sld-pts li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--a1);flex-shrink:0;margin-top:6px;}
-
 .snote{background:var(--bg3);border-radius:12px;padding:14px 16px;border-left:2.5px solid var(--gold);}
 .snote-lbl{font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:1.5px;margin-bottom:5px;}
 .snote-txt{font-size:13px;color:var(--muted2);line-height:1.6;font-style:italic;}
-
 .sld-ctrls{display:flex;gap:10px;margin-top:16px;}
 .scb{flex:1;padding:11px;border-radius:12px;border:0.5px solid var(--border2);background:transparent;color:var(--muted);font-family:'Fira Code',monospace;font-size:11px;cursor:pointer;transition:all 0.15s;letter-spacing:0.5px;}
 .scb:hover{color:var(--text);background:var(--bg3);}
 .scb.pri{background:var(--a1);color:#fff;border-color:var(--a1);}
 .scb.pri:hover{background:#8b7dfb;}
 .scb:disabled{opacity:0.25;cursor:not-allowed;}
-
 .act-row{display:flex;gap:10px;margin-top:12px;}
 .act-b{flex:1;padding:11px;border-radius:12px;border:0.5px solid var(--border2);background:transparent;color:var(--muted);font-size:12px;font-family:'Fira Code',monospace;cursor:pointer;transition:all 0.15s;letter-spacing:0.5px;}
 .act-b:hover{color:var(--text);background:var(--bg3);}
@@ -151,14 +142,11 @@ select:focus{border-color:var(--a1);}
   </nav>
   <div class="land-hero">
     <div class="eyebrow">AI PITCH DECK GENERATOR</div>
-    <h1 class="land-h1">
-      <span class="line1">Your idea is good.</span>
-      <span class="line2">Your deck should be too.</span>
-    </h1>
+    <h1 class="land-h1"><span class="line1">Your idea is good.</span><span class="line2">Your deck should be too.</span></h1>
     <p class="land-sub">Describe your startup in plain English and get a full 10-slide investor-ready pitch deck in 30 seconds. Speaker notes included.</p>
     <div class="cta-group">
       <button class="btn-cta" onclick="goToApp()">Generate My Deck →</button>
-      <button class="btn-ghost" onclick="goToApp()">See how it works</button>
+      <button class="btn-ghost" onclick="goToHIW()">See how it works</button>
     </div>
     <div class="feature-pills">
       <div class="pill"><div class="pill-dot" style="background:#7c6dfa;"></div>10 slides generated</div>
@@ -177,6 +165,68 @@ select:focus{border-color:var(--a1);}
   </footer>
 </div>
 
+<div class="page" id="hiwPage">
+  <nav class="hiw-nav">
+    <button class="back-btn" onclick="goToLanding()">← Back</button>
+    <div class="logo">Pitch<span class="dot">.</span>Forge</div>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+  </nav>
+  <div class="hiw-body">
+    <div class="hiw-kicker">HOW IT WORKS</div>
+    <h1 class="hiw-title">From idea to investor-ready<br>deck in 3 steps</h1>
+    <p class="hiw-sub">No design skills needed. No PowerPoint. No spending hours figuring out what to say. Just describe your startup and let the AI do the heavy lifting.</p>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-icon">✍️</div>
+          <div class="step-name">Describe your startup</div>
+          <div class="step-desc">Type out your idea in plain English — what problem you're solving, who it's for, and how it works. Don't overthink it. Even a rough description works.</div>
+          <div class="step-tip">💡 Tip: Mention your target market, the problem, and your solution in 2-3 sentences for the best results.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-icon">⚙️</div>
+          <div class="step-name">Pick your stage and audience</div>
+          <div class="step-desc">Tell PitchForge where you are in your startup journey and who you're pitching to. The AI adjusts the language and tone accordingly — angels want vision, VCs want traction.</div>
+          <div class="step-tip">💡 Tip: Pitching to angels? Keep it vision-heavy. Pitching to VCs? Lead with market size and traction.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-icon">🚀</div>
+          <div class="step-name">Get your full 10-slide deck</div>
+          <div class="step-desc">In about 30 seconds, PitchForge generates your complete pitch deck — slide by slide with headlines, bullet points, and speaker notes so you know exactly what to say when presenting.</div>
+          <div class="step-tip">💡 Tip: Use the "Copy Full Deck" button to paste everything into Google Slides or PowerPoint and design it your way.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:48px;">
+      <div class="sp-title">What's inside your deck</div>
+      <div class="slides-grid">
+        <div class="slide-chip"><div class="sc-num">01</div><div class="sc-ico">😤</div><div><div class="sc-name">Problem</div><div class="sc-desc">The pain you're solving</div></div></div>
+        <div class="slide-chip"><div class="sc-num">02</div><div class="sc-ico">💡</div><div><div class="sc-name">Solution</div><div class="sc-desc">What you built</div></div></div>
+        <div class="slide-chip"><div class="sc-num">03</div><div class="sc-ico">📊</div><div><div class="sc-name">Market Size</div><div class="sc-desc">TAM, SAM, SOM with numbers</div></div></div>
+        <div class="slide-chip"><div class="sc-num">04</div><div class="sc-ico">🛠️</div><div><div class="sc-name">Product</div><div class="sc-desc">Features and how it works</div></div></div>
+        <div class="slide-chip"><div class="sc-num">05</div><div class="sc-ico">📈</div><div><div class="sc-name">Traction</div><div class="sc-desc">Early signals and metrics</div></div></div>
+        <div class="slide-chip"><div class="sc-num">06</div><div class="sc-ico">💰</div><div><div class="sc-name">Business Model</div><div class="sc-desc">How you make money</div></div></div>
+        <div class="slide-chip"><div class="sc-num">07</div><div class="sc-ico">⚔️</div><div><div class="sc-name">Competition</div><div class="sc-desc">Your unfair advantage</div></div></div>
+        <div class="slide-chip"><div class="sc-num">08</div><div class="sc-ico">📣</div><div><div class="sc-name">Go-to-Market</div><div class="sc-desc">How you acquire customers</div></div></div>
+        <div class="slide-chip"><div class="sc-num">09</div><div class="sc-ico">👥</div><div><div class="sc-name">Team</div><div class="sc-desc">Why your team wins</div></div></div>
+        <div class="slide-chip"><div class="sc-num">10</div><div class="sc-ico">🙏</div><div><div class="sc-name">The Ask</div><div class="sc-desc">Funding amount and use of funds</div></div></div>
+      </div>
+    </div>
+    <div class="hiw-cta">
+      <h3>Ready to build your deck?</h3>
+      <p>Free, no signup, takes 30 seconds.</p>
+      <button class="btn-cta" onclick="goToApp()">Generate My Deck →</button>
+    </div>
+  </div>
+</div>
+
 <div class="page" id="appPage">
   <nav class="app-nav">
     <button class="back-btn" onclick="goToLanding()">← Back</button>
@@ -184,7 +234,7 @@ select:focus{border-color:var(--a1);}
     <div class="step-ind" id="stepInd">LET'S BUILD</div>
   </nav>
   <div class="app-body">
-    <div class="step active" id="inputStep">
+    <div class="astep active" id="inputStep">
       <div class="step-kicker">DESCRIBE YOUR STARTUP</div>
       <div class="step-title">What are you building?</div>
       <div class="step-sub">Be specific — the more detail you give, the better your deck will be.</div>
@@ -192,8 +242,7 @@ select:focus{border-color:var(--a1);}
         <label class="input-lbl">YOUR STARTUP IDEA</label>
         <textarea id="ideaInput" placeholder="e.g. A subscription platform for Indian college students that delivers curated study materials, mock tests and 1-on-1 mentor sessions for JEE and UPSC preparation..." rows="5"></textarea>
         <div class="options-grid">
-          <div>
-            <label class="opt-lbl">STARTUP STAGE</label>
+          <div><label class="opt-lbl">STARTUP STAGE</label>
             <select id="stageSelect">
               <option value="idea">💡 Idea Stage</option>
               <option value="mvp">🚀 MVP Built</option>
@@ -201,8 +250,7 @@ select:focus{border-color:var(--a1);}
               <option value="growth">🔥 Growth Stage</option>
             </select>
           </div>
-          <div>
-            <label class="opt-lbl">TARGET INVESTORS</label>
+          <div><label class="opt-lbl">TARGET INVESTORS</label>
             <select id="audienceSelect">
               <option value="angel">👼 Angel Investors</option>
               <option value="vc">💼 Venture Capital</option>
@@ -218,7 +266,6 @@ select:focus{border-color:var(--a1);}
       </button>
       <div class="err" id="errMsg"></div>
     </div>
-
     <div class="deck-out" id="deckOut">
       <div class="deck-meta">
         <div class="deck-name" id="deckName">—</div>
@@ -241,19 +288,10 @@ select:focus{border-color:var(--a1);}
 
 <script>
 let isDark=true,cur=0,slides=[];
-function toggleTheme(){
-  isDark=!isDark;
-  document.body.toggleAttribute('data-light',!isDark);
-  document.getElementById('themeBtn').textContent=isDark?'🌙':'☀️';
-}
-function goToApp(){
-  document.getElementById('landingPage').classList.remove('active');
-  document.getElementById('appPage').classList.add('active');
-}
-function goToLanding(){
-  document.getElementById('appPage').classList.remove('active');
-  document.getElementById('landingPage').classList.add('active');
-}
+function toggleTheme(){isDark=!isDark;document.body.toggleAttribute('data-light',!isDark);}
+function goToLanding(){['hiwPage','appPage'].forEach(p=>document.getElementById(p).classList.remove('active'));document.getElementById('landingPage').classList.add('active');window.scrollTo({top:0});}
+function goToHIW(){['landingPage','appPage'].forEach(p=>document.getElementById(p).classList.remove('active'));document.getElementById('hiwPage').classList.add('active');window.scrollTo({top:0});}
+function goToApp(){['landingPage','hiwPage'].forEach(p=>document.getElementById(p).classList.remove('active'));document.getElementById('appPage').classList.add('active');window.scrollTo({top:0});}
 async function generate(){
   const idea=document.getElementById('ideaInput').value.trim();
   if(!idea||idea.length<20){showErr('Describe your idea in more detail.');return;}
@@ -280,13 +318,7 @@ function renderDeck(data){
   document.getElementById('slideDots').innerHTML=slides.map((s,i)=>`<div class="sdot ${i===0?'on':''}" onclick="go(${i})" title="${s.title}"></div>`).join('');
   document.getElementById('slideFrame').innerHTML=slides.map((s,i)=>`
     <div class="sld ${i===0?'on':''}">
-      <div class="sld-top">
-        <div class="sld-left">
-          <div class="sld-cat">SLIDE ${s.number} · ${s.title.toUpperCase()}</div>
-          <div class="sld-headline">${s.headline}</div>
-        </div>
-        <div class="sld-ico">${s.emoji}</div>
-      </div>
+      <div class="sld-top"><div class="sld-left"><div class="sld-cat">SLIDE ${s.number} · ${s.title.toUpperCase()}</div><div class="sld-headline">${s.headline}</div></div><div class="sld-ico">${s.emoji}</div></div>
       <ul class="sld-pts">${(s.points||[]).map(p=>`<li>${p}</li>`).join('')}</ul>
       <div class="snote"><div class="snote-lbl">🎤 SPEAKER NOTE</div><div class="snote-txt">${s.speaker_note}</div></div>
     </div>`).join('');
@@ -297,14 +329,7 @@ function renderDeck(data){
   document.getElementById('genBtn').classList.remove('loading');
   d.scrollIntoView({behavior:'smooth',block:'start'});
 }
-function go(n){
-  document.querySelectorAll('.sld')[cur].classList.remove('on');
-  document.querySelectorAll('.sdot')[cur].classList.remove('on');
-  cur=n;
-  document.querySelectorAll('.sld')[cur].classList.add('on');
-  document.querySelectorAll('.sdot')[cur].classList.add('on');
-  updateProg();
-}
+function go(n){document.querySelectorAll('.sld')[cur].classList.remove('on');document.querySelectorAll('.sdot')[cur].classList.remove('on');cur=n;document.querySelectorAll('.sld')[cur].classList.add('on');document.querySelectorAll('.sdot')[cur].classList.add('on');updateProg();}
 function next(){if(cur<slides.length-1)go(cur+1);}
 function prev(){if(cur>0)go(cur-1);}
 function updateProg(){
@@ -314,17 +339,8 @@ function updateProg(){
   document.getElementById('nextBtn').textContent=cur===slides.length-1?'✓ Done':'Next →';
   document.getElementById('stepInd').textContent=`SLIDE ${cur+1} OF ${slides.length}`;
 }
-function showErr(msg){
-  const e=document.getElementById('errMsg');e.textContent=msg;e.style.display='block';
-  document.getElementById('genBtn').disabled=false;document.getElementById('genBtn').classList.remove('loading');
-}
-function resetApp(){
-  document.getElementById('ideaInput').value='';
-  document.getElementById('deckOut').style.display='none';
-  document.getElementById('inputStep').classList.add('active');
-  document.getElementById('stepInd').textContent="LET'S BUILD";
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+function showErr(msg){const e=document.getElementById('errMsg');e.textContent=msg;e.style.display='block';document.getElementById('genBtn').disabled=false;document.getElementById('genBtn').classList.remove('loading');}
+function resetApp(){document.getElementById('ideaInput').value='';document.getElementById('deckOut').style.display='none';document.getElementById('inputStep').classList.add('active');document.getElementById('stepInd').textContent="LET'S BUILD";window.scrollTo({top:0,behavior:'smooth'});}
 function copyDeck(){
   const text=slides.map(s=>`SLIDE ${s.number}: ${s.title}\n${s.headline}\n${(s.points||[]).join('\n')}\n\nSpeaker note: ${s.speaker_note}`).join('\n\n---\n\n');
   const full=`${document.getElementById('deckName').textContent}\n${document.getElementById('deckTag').textContent}\n\n${text}`;
