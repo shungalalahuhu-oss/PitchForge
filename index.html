@@ -320,7 +320,7 @@ select:focus{border-color:var(--a1);}
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundled.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 let isDark=true,cur=0,slides=[],deckData=null;
@@ -520,15 +520,17 @@ function exportPDF(){
 
 async function exportPPTX(){
   if(!deckData){return;}
-  if(typeof PptxGenJS==='undefined'){
+  const PptxGen=window.PptxGenJS||window.pptxgen||window.PptxGenJs;
+  if(!PptxGen){
     const btn=event.target;
     const orig=btn.textContent;
     btn.textContent='⏳ Loading...';
-    await new Promise(r=>setTimeout(r,3000));
+    await new Promise(r=>setTimeout(r,4000));
     btn.textContent=orig;
-    if(typeof PptxGenJS==='undefined'){alert('Still loading, try once more in a few seconds.');return;}
+    const PptxGen2=window.PptxGenJS||window.pptxgen||window.PptxGenJs;
+    if(!PptxGen2){alert('PPTX unavailable. Use PDF instead or try refreshing the page.');return;}
   }
-  const pptx=new PptxGenJS();
+  const pptx=new (window.PptxGenJS||window.pptxgen||window.PptxGenJs)();
   pptx.layout='LAYOUT_WIDE';
   const BG='050507';
   const PURPLE='7C6DFA';
